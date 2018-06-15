@@ -8,3 +8,14 @@ pipeline:
       - CGO_ENABLED=0
     commands:
       - make build
+  docker:
+    image: plugins/docker
+    username: docker-user
+    password: docker-name
+    repo: rozendhyan/golang-http
+    tags: lastest
+    #secrets: [ rozendhyan, rozen0612 ]
+    dockerfile: dockerfile
+    default_tags: true
+    when:
+      event: [ push, tag ]
