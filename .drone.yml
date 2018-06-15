@@ -1,0 +1,10 @@
+pipeline:
+  build_linux_amd64:
+    image: golang:1.10
+    group: build
+    environment:
+      - GOOS=linux
+      - GOARCH=amd64
+      - CGO_ENABLED=0
+    commands:
+      - make build
